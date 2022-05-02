@@ -31,17 +31,17 @@ public class LoginAndSortSteps extends BaseSteps {
     @Given("Зайти на сайт и залогиниться")
     public void openUriAndLogin() {
         basePage.openUrl();
-        authPage.enterLogin();
-        authPage.enterPassword();
-        authPage.signInButtonClick();
-        dashboardPage.checkThatUserIsLogin();
-        dashboardPage.checkPageIsLoaded();
+        authPage.enterLogin()
+                .enterPassword()
+                .signInButtonClick();
+        dashboardPage.checkThatUserIsLogin()
+                .checkPageIsLoaded();
     }
 
     @Then("Юзер залогинен и страница загрузилась")
     public void checkUserIsLoginAndPageIsLoaded() {
-        dashboardPage.checkThatUserIsLogin();
-        dashboardPage.checkPageIsLoaded();
+        dashboardPage.checkThatUserIsLogin()
+                .checkPageIsLoaded();
     }
 
     @When("Нажать на опцию {string} в боковом меню")
@@ -72,8 +72,8 @@ public class LoginAndSortSteps extends BaseSteps {
 
     @When("Зайти в таблицу с игроками")
     public void openPlayersTable() {
-        dashboardPageSideBar.clickMenuTab("Users");
-        dashboardPageSideBar.clickSubMenuTab("Players");
+        dashboardPageSideBar.clickMenuTab("Users")
+                .clickSubMenuTab("Players");
         playersTable.checkPlayersTableIsLoaded();
     }
 

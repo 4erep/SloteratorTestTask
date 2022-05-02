@@ -26,4 +26,5 @@ public class DashboardPageSideBar extends BasePage {
 
         return this;
     }
+
 }

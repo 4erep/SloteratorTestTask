@@ -31,4 +31,5 @@ public class AuthPage extends BasePage {
         driver.findElement(signInButton).click();
         return this;
     }
+
 }

@@ -12,6 +12,7 @@ import static com.testslotegrator.api.config.Route.PLAYERS;
 import static com.testslotegrator.api.config.Route.TOKEN;
 import static com.testslotegrator.api.core.SpecBuilder.getRequestSpec;
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class BaseApi {
 
@@ -28,6 +29,7 @@ public class BaseApi {
                 body(body).
                 when().post(TOKEN).
                 then().
+                assertThat().body(matchesJsonSchemaInClasspath("api/schemas/Token.json")).
                 log().all().
                 extract().
                 response();
@@ -40,6 +42,7 @@ public class BaseApi {
                 body(regPlayerCredentials).
                 when().post(TOKEN).
                 then().
+                assertThat().body(matchesJsonSchemaInClasspath("api/schemas/Token.json")).
                 log().all().
                 extract().
                 response();
@@ -53,6 +56,7 @@ public class BaseApi {
                 body(newPlayer).
                 when().post(PLAYERS).
                 then().
+                assertThat().body(matchesJsonSchemaInClasspath("api/schemas/UserCredentials.json")).
                 log().all().
                 extract().
                 response();

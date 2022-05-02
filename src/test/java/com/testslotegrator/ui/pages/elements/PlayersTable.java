@@ -43,11 +43,13 @@ public class PlayersTable extends BasePage {
         return null;
     }
 
-    public void checkIsTableSorted() {
+    public PlayersTable checkIsTableSorted() {
         List<WebElement> sortedCells = driver.findElements(By.xpath("//table./tbody//td[" + sortedIndex + "]"));
         List<String> sortedValues = new ArrayList<>();
         sortedCells.forEach(cell -> sortedValues.add(cell.getText()));
         assertTrue(Ordering.natural().isOrdered(sortedValues));
+
+        return this;
     }
 
 }

@@ -33,4 +33,5 @@ public class BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.invisibilityOf(element));
         return element;
     }
+
 }
